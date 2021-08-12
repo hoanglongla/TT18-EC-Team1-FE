@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Row from '@iso/ui/Antd/Grid/Row';
-import Col from '@iso/ui/Antd/Grid/Col';
-import Divider from '@iso/ui/Antd/Divider/Divider';
-import Button from '@iso/ui/Antd/Button/Button';
-import Logo from '@iso/ui/Logo/Logo';
-import SignInForm from './SignInForm';
-import { REGISTRATION_PAGE } from '../../settings/constant';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Row from "@iso/ui/Antd/Grid/Row";
+import Col from "@iso/ui/Antd/Grid/Col";
+import Divider from "@iso/ui/Antd/Divider/Divider";
+import Button from "@iso/ui/Antd/Button/Button";
+import Logo from "@iso/ui/Logo/Logo";
+import SignInForm from "./SignInForm";
+import { REGISTRATION_PAGE } from "../../settings/constant";
 import SignInWrapper, {
   Title,
   TitleInfo,
   Text,
   SignInFormWrapper,
   SignInBannerWrapper,
-} from './SignIn.style';
+} from "./SignIn.style";
 
-import signInImage from '@hotel/assets/images/login-page-bg.jpg';
-import DemoLogo from '@hotel/assets/images/logo-with-text.svg';
+import signInImage from "@hotel/assets/images/login-page-bg.jpg";
+import DemoLogo from "@hotel/assets/images/logo-with-text.svg";
 
 const SignIn = () => {
   const [state, setState] = useState({
@@ -56,7 +56,7 @@ const SignIn = () => {
               loading={state.facebookBtnLoading}
               className="facebook-btn"
               type="primary"
-              style={{ width: '100%', marginBottom: 16 }}
+              style={{ width: "100%", marginBottom: 16 }}
               size="large"
               onClick={facebookAuthAction}
             >
@@ -68,7 +68,7 @@ const SignIn = () => {
               loading={state.githubBtnLoading}
               className="github-btn"
               type="primary"
-              style={{ width: '100%', marginBottom: 16 }}
+              style={{ width: "100%", marginBottom: 16 }}
               size="large"
               onClick={githubAuthAction}
             >
@@ -76,13 +76,13 @@ const SignIn = () => {
             </Button>
           </Col>
         </Row>
-        <Row gutter={16} style={{ marginBottom: '37px' }}>
+        <Row gutter={16} style={{ marginBottom: "37px" }}>
           <Col span={12}>
             <Button
               loading={state.firebaseBtnLoading}
               className="firebase-btn"
               type="primary"
-              style={{ width: '100%', marginBottom: 16 }}
+              style={{ width: "100%", marginBottom: 16 }}
               size="large"
               onClick={firebaseAuthAction}
             >
@@ -94,7 +94,7 @@ const SignIn = () => {
               loading={state.googleBtnLoading}
               className="google-btn"
               type="primary"
-              style={{ width: '100%', marginBottom: 16 }}
+              style={{ width: "100%", marginBottom: 16 }}
               size="large"
               onClick={googleAuthAction}
             >
@@ -103,7 +103,7 @@ const SignIn = () => {
           </Col>
         </Row>
         <Text>
-          Don't Have an Account?{' '}
+          Don't Have an Account?{" "}
           <Link to={REGISTRATION_PAGE}>Registration</Link>
         </Text>
       </SignInFormWrapper>
@@ -112,9 +112,9 @@ const SignIn = () => {
         <div
           style={{
             backgroundImage: `url(${signInImage})`,
-            backgroundPosition: 'center center',
-            height: '100vh',
-            backgroundSize: 'cover',
+            backgroundPosition: "center center",
+            height: "100vh",
+            backgroundSize: "cover",
           }}
         />
       </SignInBannerWrapper>
