@@ -20,8 +20,11 @@ export const AGENT_PROFILE_DELETE = "/delete";
 export const AGENT_PROFILE_FAVOURITE = "/favourite-post";
 export const AGENT_PROFILE_CONTACT = "/contact";
 export const ADD_HOTEL_PAGE = "/add";
+<<<<<<< HEAD
 export const CHECKOUT_PAGE = "/checkout";
 export const PAYMENT_PAGE = "/payment";
+=======
+>>>>>>> 49a50fe490ad0a884c1e044ed56d7d6503cccf32
 
 // Other Pages
 export const PRICING_PLAN_PAGE = "/pricing-plan";
@@ -34,3 +37,4 @@ export const REGISTRATION_PAGE = "/registration";
 export const CHANGE_PASSWORD_PAGE = "/change-password";
 export const FORGET_PASSWORD_PAGE = "/forget-password";
 // **************** ROUTE CONSTANT END **************************
+export const API_URL = "http://econail.localhost/api";
