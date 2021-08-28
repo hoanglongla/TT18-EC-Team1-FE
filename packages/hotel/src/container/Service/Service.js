@@ -83,14 +83,11 @@ export default function ServiceListing() {
         {/* {console.log(categories)} */}
         {categories.length > 0
           ? categories.map((category, index) => {
-              // var cate_services = [
-              //   ...services.filter((service) => {
-              //     return service.services_categories_id === category.id;
-              //   }),
-              // ];
-              var cate_services = services.filter((service) => {
-                return service.services_categories_id === category.id;
-              });
+              var cate_services = [
+                ...services.filter((service) => {
+                  return service.services_categories_id === category.id;
+                }),
+              ];
 
               return cate_services ? (
                 <div key={index}>
@@ -98,7 +95,7 @@ export default function ServiceListing() {
                   <CarouselSection>
                     {cate_services.length !== 0 ? (
                       <GlideCarousel
-                        carouselSelector="explore_carousel"
+                        carouselSelector={`explore_carouse${index}`}
                         prevButton={<IoIosArrowBack />}
                         nextButton={<IoIosArrowForward />}
                         options={carouselOptions}
@@ -106,10 +103,8 @@ export default function ServiceListing() {
                         <>
                           {console.log("cate Name", category.name)}
 
-                          {cate_services.map((post, index) => (
+                          {cate_services.map((post) => (
                             <GlideSlide key={post.id}>
-                              {console.log("post", post)}
-
                               <ImageCard
                                 serviceID={post.id}
                                 link="post-service"
@@ -130,36 +125,68 @@ export default function ServiceListing() {
               ) : null;
             })
           : null}
-
-        {/* <ServiceSectionTitle title="Chăm sóc móng tay ,cắt móng" />
-        <CarouselSection>
-          {services.length !== 0 ? (
-            <GlideCarousel
-              carouselSelector="explore_carousel"
-              prevButton={<IoIosArrowBack />}
-              nextButton={<IoIosArrowForward />}
-              options={carouselOptions}
-            >
-              <>
-                {services.map((post) => (
-                  <GlideSlide key={post.id}>
-                    <ImageCard
-                      serviceID={post.id}
-                      link="post-service"
-                      imageSrc={post.picture}
-                      title={`${post.name}`}
-                      meta={`${post.price} VND`}
-                      sextype={`Dành cho nam`}
-                    />
-                  </GlideSlide>
-                ))}
-              </>
-            </GlideCarousel>
-          ) : (
-            <Loader />
-          )}
-        </CarouselSection> */}
       </Container>
     </ServiceListingWrapper>
+
+    // <ServiceListingWrapper>
+    //   <Container fluid="true">
+    //     <ServiceSectionTitle title="Chăm sóc móng tay ,cắt móng" />
+    //     <CarouselSection>
+    //       {services.length !== 0 ? (
+    //         <GlideCarousel
+    //           carouselSelector="explore_carousel"
+    //           prevButton={<IoIosArrowBack />}
+    //           nextButton={<IoIosArrowForward />}
+    //           options={carouselOptions}
+    //         >
+    //           <>
+    //             {services.map((post) => (
+    //               <GlideSlide key={post.id}>
+    //                 <ImageCard
+    //                   serviceID={post.id}
+    //                   link="post-service"
+    //                   imageSrc={post.picture}
+    //                   title={`${post.name}`}
+    //                   meta={`${post.price} VND`}
+    //                   sextype={`Dành cho nam`}
+    //                 />
+    //               </GlideSlide>
+    //             ))}
+    //           </>
+    //         </GlideCarousel>
+    //       ) : (
+    //         <Loader />
+    //       )}
+    //     </CarouselSection>
+    //     <ServiceSectionTitle title="Dịch vụ sơn vẽ móng tay" />
+    //     <CarouselSection>
+    //       {services.length !== 0 ? (
+    //         <GlideCarousel
+    //           carouselSelector="explore_carouse1"
+    //           prevButton={<IoIosArrowBack />}
+    //           nextButton={<IoIosArrowForward />}
+    //           options={carouselOptions}
+    //         >
+    //           <>
+    //             {services.map((post) => (
+    //               <GlideSlide key={post.id}>
+    //                 <ImageCard
+    //                   serviceID={post.id}
+    //                   link="post-service"
+    //                   imageSrc={post.picture}
+    //                   title={`${post.name}`}
+    //                   meta={`${post.price} VND`}
+    //                   sextype={`Dành cho nam`}
+    //                 />
+    //               </GlideSlide>
+    //             ))}
+    //           </>
+    //         </GlideCarousel>
+    //       ) : (
+    //         <Loader />
+    //       )}
+    //     </CarouselSection>
+    //   </Container>
+    // </ServiceListingWrapper>
   );
 }
