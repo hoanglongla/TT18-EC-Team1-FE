@@ -1,20 +1,25 @@
-import styled from 'styled-components';
-import { themeGet } from '@styled-system/theme-get';
+import styled from "styled-components";
+import { themeGet } from "@styled-system/theme-get";
 
 const ListingWrapper = styled.div`
   position: relative;
+
+  .category:hover {
+    cursor: pointer;
+    color: green;
+  }
 
   /* checkbox group component style */
   .ant-checkbox-group {
     .ant-checkbox-group-item {
       .ant-checkbox {
         .ant-checkbox-inner {
-          border-color: ${themeGet('text.1', '#909090')};
+          border-color: ${themeGet("text.1", "#909090")};
         }
         &.ant-checkbox-checked {
           .ant-checkbox-inner {
-            border-color: ${themeGet('primary.0', '#008489')};
-            background-color: ${themeGet('primary.0', '#008489')};
+            border-color: ${themeGet("primary.0", "#008489")};
+            background-color: ${themeGet("primary.0", "#008489")};
           }
           &::after {
             display: none;
@@ -22,13 +27,13 @@ const ListingWrapper = styled.div`
         }
       }
       span {
-        color: ${themeGet('text.0', '#2C2C2C')};
+        color: ${themeGet("text.0", "#2C2C2C")};
         font-size: 15px;
       }
       &:hover {
         .ant-checkbox {
           .ant-checkbox-inner {
-            border-color: ${themeGet('primary.0', '#008489')};
+            border-color: ${themeGet("primary.0", "#008489")};
           }
         }
       }
@@ -56,40 +61,40 @@ const ListingWrapper = styled.div`
     .ant-slider-rail {
       height: 5px;
       border-radius: 3px;
-      background-color: ${themeGet('color.13', '#E2E2E2')};
+      background-color: ${themeGet("color.13", "#E2E2E2")};
     }
     .ant-slider-track {
-      background-color: ${themeGet('primary.0', '#008489')};
+      background-color: ${themeGet("primary.0", "#008489")};
     }
     .ant-slider-step {
       .ant-slider-dot {
         width: 5px;
         height: 5px;
         top: 0;
-        border-color: ${themeGet('color.13', '#E2E2E2')};
-        background-color: ${themeGet('color.13', '#E2E2E2')};
+        border-color: ${themeGet("color.13", "#E2E2E2")};
+        background-color: ${themeGet("color.13", "#E2E2E2")};
         &:first-child {
           margin-left: -1px;
         }
         &.ant-slider-dot-active {
-          border-color: ${themeGet('primary.0', '#008489')};
+          border-color: ${themeGet("primary.0", "#008489")};
         }
       }
     }
     &:hover {
       .ant-slider-track {
-        background-color: ${themeGet('primary.0', '#008489')};
+        background-color: ${themeGet("primary.0", "#008489")};
       }
       .ant-slider-handle:not(.ant-tooltip-open) {
-        border-color: ${themeGet('primary.0', '#008489')};
+        border-color: ${themeGet("primary.0", "#008489")};
       }
     }
     .ant-slider-handle {
       margin-top: -8px;
       width: 20px;
       height: 20px;
-      border: 6px solid ${themeGet('primary.0', '#008489')};
-      box-shadow: 0 2px 2px ${themeGet('color.5', 'rgba(0, 0, 0, 0.25)')};
+      border: 6px solid ${themeGet("primary.0", "#008489")};
+      box-shadow: 0 2px 2px ${themeGet("color.5", "rgba(0, 0, 0, 0.25)")};
       &:focus {
         box-shadow: none;
       }
@@ -98,7 +103,7 @@ const ListingWrapper = styled.div`
       margin-top: 10px;
       .ant-slider-mark-text {
         font-size: 15px;
-        color: ${themeGet('text.0', '#2C2C2C')};
+        color: ${themeGet("text.0", "#2C2C2C")};
       }
     }
   }
@@ -107,7 +112,7 @@ const ListingWrapper = styled.div`
   .toolbar {
     padding-left: 30px;
     padding-right: 30px;
-    border-bottom: 1px solid ${themeGet('border.3', '#E6E6E6')};
+    border-bottom: 1px solid ${themeGet("border.3", "#E6E6E6")};
     @media only screen and (min-width: 1441px) {
       min-height: 78px;
     }
@@ -127,9 +132,9 @@ const ListingWrapper = styled.div`
       font-size: 15px;
       font-weight: 700;
       border-radius: 3px;
-      color: ${themeGet('color.1', '#ffffff')};
-      border-color: ${themeGet('primary.0', '#008489')};
-      background-color: ${themeGet('primary.0', '#008489')};
+      color: ${themeGet("color.1", "#ffffff")};
+      border-color: ${themeGet("primary.0", "#008489")};
+      background-color: ${themeGet("primary.0", "#008489")};
       transition: all 0.3s ease;
       &:hover {
         outline: none;
@@ -153,7 +158,7 @@ export const ShowMapSwitch = styled.div`
     min-width: 60px;
     height: 38px;
     &.ant-switch-checked {
-      background-color: ${themeGet('primary.0', '#008489')};
+      background-color: ${themeGet("primary.0", "#008489")};
     }
     &::after {
       width: 34px;
@@ -177,7 +182,7 @@ export const PostsWrapper = styled.div`
 
 export const FixedMap = styled.div`
   position: fixed;
-  background-color: ${themeGet('color.2', '#F7F7F7')};
+  background-color: ${themeGet("color.2", "#F7F7F7")};
   right: 0;
   width: 40%;
   height: calc(100% - 152px);
@@ -198,7 +203,7 @@ export const FixedMap = styled.div`
 `;
 
 export const Label = styled.div`
-  color: ${themeGet('text.0', '#2C2C2C')};
+  color: ${themeGet("text.0", "#2C2C2C")};
   font-size: 15px;
   margin-right: 15px;
 `;
@@ -207,24 +212,24 @@ export const FilterArea = styled.div`
   overflow: hidden;
   button,
   button.ant-btn {
-    color: ${themeGet('text.0', '#2C2C2C')};
+    color: ${themeGet("text.0", "#2C2C2C")};
     font-size: 15px;
     height: 38px;
     border-radius: 3px;
-    border: 1px solid ${themeGet('border.3', '#E6E6E6')};
+    border: 1px solid ${themeGet("border.3", "#E6E6E6")};
 
     &::after {
       content: none;
     }
 
     &:hover {
-      background-color: ${themeGet('border.3', '#E6E6E6')};
+      background-color: ${themeGet("border.3", "#E6E6E6")};
     }
 
     &.active {
-      color: ${themeGet('color.1', '#ffffff')};
-      border-color: ${themeGet('primary.0', '#008489')};
-      background-color: ${themeGet('primary.0', '#008489')};
+      color: ${themeGet("color.1", "#ffffff")};
+      border-color: ${themeGet("primary.0", "#008489")};
+      background-color: ${themeGet("primary.0", "#008489")};
     }
   }
 `;
@@ -239,15 +244,15 @@ export const ButtonGroup = styled.div`
   align-items: center;
 
   button.ant-btn {
-    color: ${themeGet('text.0', '#2C2C2C')};
+    color: ${themeGet("text.0", "#2C2C2C")};
     font-size: 15px;
     height: 38px;
     border-radius: 3px;
-    border: 1px solid ${themeGet('border.3', '#E6E6E6')};
+    border: 1px solid ${themeGet("border.3", "#E6E6E6")};
     &.ant-btn-primary {
-      color: ${themeGet('color.1', '#ffffff')};
-      border-color: ${themeGet('primary.0', '#008489')};
-      background-color: ${themeGet('primary.0', '#008489')};
+      color: ${themeGet("color.1", "#ffffff")};
+      border-color: ${themeGet("primary.0", "#008489")};
+      background-color: ${themeGet("primary.0", "#008489")};
       margin-left: 10px;
     }
     &::after {
