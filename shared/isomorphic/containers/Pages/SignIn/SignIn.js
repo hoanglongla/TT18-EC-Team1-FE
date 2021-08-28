@@ -70,7 +70,7 @@ export default function SignIn({setToken}) {
       if(role == "admin"){
         localStorage.setItem('token', token);
         localStorage.setItem('role', role);
-        history.push('/dashboard');
+        history.push('/dashboard/branch');
        
       }
       else{
