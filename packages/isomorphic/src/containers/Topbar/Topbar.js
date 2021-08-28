@@ -50,19 +50,7 @@ export default function Topbar() {
             <TopbarSearch />
           </li>
 
-          <li
-            onClick={() => setSelectedItem('notification')}
-            className={selectedItem ? 'isoNotify active' : 'isoNotify'}
-          >
-            <TopbarNotification />
-          </li>
-
-          <li onClick={() => setSelectedItem('message')} className="isoMsg">
-            <TopbarMessage />
-          </li>
-          <li onClick={() => setSelectedItem('addToCart')} className="isoCart">
-            <TopbarAddtoCart />
-          </li>
+          
 
           <li onClick={() => setSelectedItem('user')} className="isoUser">
             <TopbarUser />

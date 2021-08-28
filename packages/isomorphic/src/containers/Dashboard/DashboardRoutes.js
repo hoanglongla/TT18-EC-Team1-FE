@@ -4,9 +4,9 @@ import Loader from '@iso/components/utility/loader';
 
 const routes = [
   {
-    path: '',
+    path: 'branch/:id',
     component: lazy(() => import('@iso/containers/Widgets/Widgets')),
-    exact: true,
+    
   },
   {
     path: 'product_management',
@@ -60,6 +60,7 @@ const routes = [
     component: lazy(() =>
     import('@iso/containers/Tables/BranchTable/AntTables')
     ),
+    exact: true,
   },
   {
     path: 'InputField',

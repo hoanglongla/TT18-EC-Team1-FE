@@ -1,4 +1,7 @@
 import React from "react";
+import { useState,useEffect } from "react";
+import { useLocation } from "react-router";
+import { Link, useRouteMatch } from 'react-router-dom';
 import clone from "clone";
 import { Row, Col } from "antd";
 import LayoutWrapper from "@iso/components/utility/layoutWrapper";
@@ -17,7 +20,7 @@ import SocialProfile from "./SocialWidget/SocialProfileIcon";
 import userpic from "@iso/assets/images/user1.png";
 import { isServer } from "@iso/lib/helpers/isServer";
 import { DatePicker } from "antd";
-
+import { API_URL } from "../../config/url/url";
 import {
   TableViews,
   tableinfos,
@@ -229,6 +232,22 @@ export default function() {
     width: '400px',
     margin:'10px'
   };
+  const [data,setData]=useState({});
+  const USER_TOKEN = localStorage.getItem("token");
+  const AuthStr = "Bearer ".concat(USER_TOKEN);
+  const { state } = useLocation();
+  function getReport(){
+  return axios.get(`${API_URL}/admin/reportByTail?tail_id=${state.id_tail}`,
+     { headers: { Authorization: AuthStr,'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS','Access-Control-Allow-Origin' : '*' }}  
+    ).then(res=>setData(res.data.data));
+    
+  }
+  useEffect(()=>{
+    async function fetchData(){
+      await getReport();
+    }
+    fetchData();
+  },[]);
   return (
     <LayoutWrapper>
       <div style={styles.wisgetPageStyle}>
@@ -259,8 +278,8 @@ export default function() {
             <IsoWidgetsWrapper>
               {/* Sticker Widget */}
               <StickerWidget
-                number={<IntlMessages id="210" />}
-                text={<IntlMessages id="Order Sale" />}
+                number={<IntlMessages id={`${data.total_count_order}`} />}
+                text={<IntlMessages id="Số đơn hàng đặt" />}
                 icon="ion-android-cart"
                 fontColor="#ffffff"
                 bgColor="#F75D81"
@@ -271,8 +290,8 @@ export default function() {
             <IsoWidgetsWrapper>
               {/* Sticker Widget */}
               <StickerWidget
-                number={<IntlMessages id="100" />}
-                text={<IntlMessages id="Service Sale" />}
+                number={<IntlMessages id={`${data.total_count_book}`} />}
+                text={<IntlMessages id="Số dịch vụ đặt" />}
                 icon="ion-android-cart"
                 fontColor="#ffffff"
                 bgColor="#42A5F6"
@@ -295,8 +314,8 @@ export default function() {
             <IsoWidgetsWrapper>
               {/* Sticker Widget */}
               <StickerWidget
-                number={<IntlMessages id="10000000" />}
-                text={<IntlMessages id="Total Revenue" />}
+                number={<IntlMessages id={`${data.total_revenue_order}`}/>}
+                text={<IntlMessages id="Doanh thu tổng" />}
                 icon="ion-cash"
                 fontColor="#ffffff"
                 bgColor="#7ED320"
@@ -305,19 +324,28 @@ export default function() {
           </Col>
         </Row>
         <Row style={rowStyle} gutter={0} justify="start">
-          {SALE_WIDGET.map((widget, idx) => (
-            <Col lg={6} md={12} sm={12} xs={24} style={colStyle} key={idx}>
+        <Col lg={6} md={12} sm={12} xs={24} style={colStyle}>
               <IsoWidgetsWrapper>
                 {/* Sale Widget */}
                 <SaleWidget
-                  label={<IntlMessages id={widget.label} />}
-                  price={<IntlMessages id={widget.price} />}
-                  details={<IntlMessages id={widget.details} />}
-                  fontColor={widget.fontColor}
+                  label={<IntlMessages id="Dịch vụ thu về" />}
+                  price={<IntlMessages id={`${data.total_revenue_service}`} />}
+                  
+                 
                 />
               </IsoWidgetsWrapper>
             </Col>
-          ))}
+            <Col lg={6} md={12} sm={12} xs={24} style={colStyle}>
+              <IsoWidgetsWrapper>
+                {/* Sale Widget */}
+                <SaleWidget
+                  label={<IntlMessages id="Đơn hàng thu về" />}
+                  price={<IntlMessages id={`${data.total_revenue_order}`} />}
+                  
+                  
+                />
+              </IsoWidgetsWrapper>
+            </Col>
         </Row>
         <Row style={rowStyle} gutter={0} justify="start">
           <Col md={12} sm={24} xs={24} style={colStyle}>
@@ -342,57 +370,9 @@ export default function() {
           </Col>
         </Row>
 
-        <Row style={rowStyle} gutter={0} justify="start">
-          <Col lg={8} md={12} sm={24} xs={24} style={colStyle}>
-            <IsoWidgetsWrapper>
-              {/* Report Widget */}
-              <ReportsWidget
-                label={<IntlMessages id="widget.reportswidget.label" />}
-                details={<IntlMessages id="widget.reportswidget.details" />}
-              >
-                {SIGNLE_PROGRESS_WIDGET.map((widget, idx) => (
-                  <SingleProgressWidget
-                    key={idx}
-                    label={<IntlMessages id={widget.label} />}
-                    percent={widget.percent}
-                    barHeight={widget.barHeight}
-                    status={widget.status}
-                    info={widget.info} // Boolean: true, false
-                  />
-                ))}
-              </ReportsWidget>
-            </IsoWidgetsWrapper>
-          </Col>
-        </Row>
+       
 
-        <Row style={rowStyle} gutter={0} justify="start">
-          <Col lg={8} md={12} sm={12} xs={24} style={colStyle}>
-            <IsoWidgetsWrapper>
-              {/* VCard Widget */}
-              <VCardWidget
-                style={{ height: "450px" }}
-                src={userpic}
-                alt="Jhon"
-                name={<IntlMessages id="widget.vcardwidget.name" />}
-                title={<IntlMessages id="widget.vcardwidget.title" />}
-                description={
-                  <IntlMessages id="widget.vcardwidget.description" />
-                }
-              >
-                <SocialWidget>
-                  {SOCIAL_PROFILE.map((profile, idx) => (
-                    <SocialProfile
-                      key={idx}
-                      url={profile.url}
-                      icon={profile.icon}
-                      iconcolor={profile.iconcolor}
-                    />
-                  ))}
-                </SocialWidget>
-              </VCardWidget>
-            </IsoWidgetsWrapper>
-          </Col>
-        </Row>
+       
       </div>
     </LayoutWrapper>
   );

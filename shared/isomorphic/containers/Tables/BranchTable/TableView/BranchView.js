@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useRouteMatch } from "react-router-dom";
 import TableWrapper from "../AntTables.styles";
 import { Link } from "react-router-dom";
 
@@ -11,6 +12,7 @@ import DrawerBranch from "./DrawerBranch";
 import { API_URL } from "../../../../config/url/url";
 const { Search } = Input;
 export default function() {
+  const match = useRouteMatch();
   const [data, setData] = useState([]);
   const [name, setName] = useState();
   const [phone, setPhone]= useState();
@@ -183,7 +185,7 @@ export default function() {
           {record.name !== "initial" && (
             <>
               
-              <Link to="/dashboard/table_ant">
+              <Link to={{pathname:`${match.url}/${record.id}`,state: { id_tail: record.id}}}>
                 <Button
                   type="primary"
                   style={{
@@ -194,7 +196,7 @@ export default function() {
                     wordWrap: "break-word",
                   }}
                 >
-                  Xem các dịch vụ hiện có
+                  Xem thống kê
                 </Button>
               </Link>
               <Button
