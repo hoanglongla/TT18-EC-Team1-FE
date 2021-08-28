@@ -13,6 +13,9 @@ import authAction from '@iso/redux/auth/actions';
 import appAction from '@iso/redux/app/actions';
 import Auth0 from '../../Authentication/Auth0/Auth0';
 import { API_URL } from '../../../config/url/url';
+import Logo from '../../../../common/UI/Logo/Logo';
+import LogoImage from "./logo_transparent.png";
+import Row from "@iso/ui/Antd/Grid/Row";
 import {Modal} from 'antd';
 import useToken from '../../../../../packages/isomorphic/src/useToken';
 import {
@@ -67,7 +70,7 @@ export default function SignIn({setToken}) {
       if(role == "admin"){
         localStorage.setItem('token', token);
         localStorage.setItem('role', role);
-        history.push('/dashboard');
+        history.push('/dashboard/branch');
        
       }
       else{
@@ -89,7 +92,7 @@ export default function SignIn({setToken}) {
       dispatch(login());
     }
     dispatch(clearMenu());
-    history.push('/dashboard');
+    history.push('/dashboard/branch');
   }
   let { from } = location.state || { from: { pathname: '/dashboard' } };
 
@@ -98,12 +101,19 @@ export default function SignIn({setToken}) {
   }
   return (
     <SignInStyleWrapper className="isoSignInPage">
+      
       <div className="isoLoginContentWrapper">
         <div className="isoLoginContent">
+          
           <div className="isoLogoWrapper">
-            <Link to="/dashboard">
-              <IntlMessages id="page.signInTitle" />
-            </Link>
+          <Row style={{ display: "flex", justifyContent: "center" }}>
+          
+          <img src={LogoImage} title="BeautyHand" width="100px" height="100px"  />
+         
+          </Row>
+          
+         
+       
           </div>
           <div className="isoSignInForm">
             <Form>
