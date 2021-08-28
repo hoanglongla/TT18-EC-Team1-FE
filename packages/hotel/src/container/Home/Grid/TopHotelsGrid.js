@@ -32,30 +32,7 @@ const TopHotelsGrid = () => {
   }, []);
 
   let posts = products;
-  // console.log(posts);
   let limit;
-
-  // if (data && width <= 767) {
-  //   posts = data.slice(0, 4);
-  //   limit = 4;
-  // }
-  // if (data && width >= 768) {
-  //   posts = data.slice(0, 6);
-  //   limit = 6;
-  // }
-  // if (data && width >= 992) {
-  //   posts = data.slice(0, 8);
-  //   limit = 8;
-  // }
-  // if (data && width >= 1200) {
-  //   posts = data.slice(0, 10);
-  //   limit = 10;
-  // }
-  // if (data && width >= 1800) {
-  //   posts = data.slice(0, 12);
-  //   limit = 12;
-  // }
-
   if (products && width <= 767) {
     posts = products.slice(0, 4);
     limit = 4;
@@ -76,6 +53,26 @@ const TopHotelsGrid = () => {
     posts = products.slice(0, 12);
     limit = 12;
   }
+  // if (data && width <= 767) {
+  //   posts = data.slice(0, 4);
+  //   limit = 4;
+  // }
+  // if (data && width >= 768) {
+  //   posts = data.slice(0, 6);
+  //   limit = 6;
+  // }
+  // if (data && width >= 992) {
+  //   posts = data.slice(0, 8);
+  //   limit = 8;
+  // }
+  // if (data && width >= 1200) {
+  //   posts = data.slice(0, 10);
+  //   limit = 10;
+  // }
+  // if (data && width >= 1800) {
+  //   posts = data.slice(0, 12);
+  //   limit = 12;
+  // }
 
   return (
     <Container fluid={true}>

@@ -25,10 +25,16 @@ import isEmpty from "lodash/isEmpty";
 import FormActionArea from "./Reservation/Reservation.style";
 import Description1 from "./Description1/Description1";
 import axios from "axios";
-import { API_URL } from "../../settings/constant";
+import { API_URL, SINGLE_POST_PAGE } from "../../settings/constant";
+import { HotelPostGridLoader } from "@iso/ui/ContentLoader/ContentLoader";
+import SectionGrid from "@hotel/components/SectionGrid/SectionGrid.cra";
+import SectionTitle from "@hotel/components/SectionTitle/SectionTitle";
+import { Link } from "react-router-dom";
 
 const SinglePage = ({ match }) => {
   const [product, setProduct] = useState([]);
+  const [recommendProducts, setRecommendProducts] = useState([]);
+  // const { data1, loading } = useDataApi("/data/top-hotel.json");
 
   // const API_URL = "http://econail.localhost/api";
   useEffect(() => {
@@ -38,7 +44,32 @@ const SinglePage = ({ match }) => {
         setProduct(res.data.data);
       }
     });
+    axios.get(`${API_URL}/g/product_recommend?product_id=${id}`).then((res) => {
+      // console.log("recom: ", res); // setProduct(res.data.data);
+      if (res.status && res.data.data.length > 0) {
+        console.log("recom-detail: ", res.data.data);
+        let tmp = res.data.data.map((product) => product.product_detail);
+        setRecommendProducts(tmp);
+      }
+    });
   }, []);
+
+  const handleRecommended = (id) => {
+    localStorage.setItem("current_product_id", id);
+    axios.get(`${API_URL}/g/product/${id}`).then((res) => {
+      if (res.status) {
+        setProduct(res.data.data);
+      }
+    });
+    axios.get(`${API_URL}/g/product_recommend?product_id=${id}`).then((res) => {
+      // console.log("recom: ", res); // setProduct(res.data.data);
+      if (res.status && res.data.data.length > 0) {
+        console.log("recom-detail: ", res.data.data);
+        let tmp = res.data.data.map((product) => product.product_detail);
+        setRecommendProducts(tmp);
+      }
+    });
+  };
 
   const { href } = useLocation();
   const [isModalShowing, setIsModalShowing] = useState(false);
@@ -63,8 +94,6 @@ const SinglePage = ({ match }) => {
     amenities,
     author,
   } = data[0];
-
-  // console.log(data[0]);
 
   return (
     <SinglePageWrapper>
@@ -116,6 +145,30 @@ const SinglePage = ({ match }) => {
       </Information>
       {/* products description */}
       <Description1 content={product.description} />
+
+      <div>
+        {recommendProducts.length > 0 &&
+          recommendProducts.map((product) => {
+            return (
+              <div style={{ display: "inline-block" }}>
+                <img
+                  style={{ height: "150px", width: "210px", margin: "10px" }}
+                  src={product.picture}
+                />
+                <Link to={`${SINGLE_POST_PAGE}/${product.id}`}>
+                  <h4
+                    onClick={() => handleRecommended(product.id)}
+                    className="recommend_name"
+                  >
+                    {product.name}
+                  </h4>
+                </Link>
+                <h5>Giá: {product.price}</h5>
+              </div>
+            );
+          })}
+      </div>
+
       <Review reviews={reviews} ratingCount={ratingCount} rating={rating} />
     </SinglePageWrapper>
   );
