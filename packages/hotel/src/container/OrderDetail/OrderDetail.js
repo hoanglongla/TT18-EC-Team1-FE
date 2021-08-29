@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const OrderDetail = () => {
   const [order, setOrder] = useState({});
-  const [orderInfo, setOrderInfo] = useState([]);
+  const [orderInfo, setOrderInfo] = useState({});
   const [products, setProducts] = useState([]);
   const [totalProductsCost, setTotalProductsCost] = useState("");
 
@@ -33,15 +33,13 @@ const OrderDetail = () => {
           //set order's general info
           let note = JSON.parse(tmp.note);
           // console.log("total: ", note.purchase_units[0].amount.value);
-          let item = [
-            {
-              key: 1,
-              id: tmp.id,
-              date: tmp.created_at.slice(0, 19),
-              status: tmp.status,
-              delivery_status: tmp.delivery_status,
-            },
-          ];
+          let item = {
+            key: 1,
+            id: tmp.id,
+            date: tmp.created_at.slice(0, 19),
+            status: tmp.status,
+            delivery_status: tmp.delivery_status,
+          };
           setOrderInfo(item);
 
           //set order items info
@@ -168,12 +166,21 @@ const OrderDetail = () => {
       )
       .then((res) => {
         console.log("update order status", res);
+        if (res.status) {
+        }
       });
+    let tmpOrderinfo = { ...orderInfo };
+    tmpOrderinfo.status = 3;
+    setOrderInfo(tmpOrderinfo);
   };
 
   return (
     <OrderDetailWrapper>
-      <Table columns={infoColumns} dataSource={orderInfo} pagination={false} />
+      <Table
+        columns={infoColumns}
+        dataSource={[orderInfo]}
+        pagination={false}
+      />
       <Table
         columns={productsColumns}
         dataSource={products}
@@ -182,7 +189,7 @@ const OrderDetail = () => {
       />
 
       {/* prettier-ignore */}
-      {orderInfo.length > 0 && orderInfo[0].status != 3 && (
+      {orderInfo.status != 3 && (
         <Button onClick={handleCancelOrder}>Hủy đơn hàng</Button>
       )}
     </OrderDetailWrapper>
