@@ -64,7 +64,7 @@ export default function() {
           price_discount: parseInt(`${price_discount}`),
           description: `${description}`,
           
-          picture: null,
+          picture: picture,
           time_estimate: parseInt(`${timeEstimate}`),
           can_book_online: book_online,
           sex_type: value,
