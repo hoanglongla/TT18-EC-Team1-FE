@@ -76,8 +76,8 @@ const PostGrid = ({
         alt={"hello"}
         draggable={false}
         style={{
-          width: "100%",
-          height: "100%",
+          width: "177px",
+          height: "177px",
           objectFit: "cover",
           position: "relative",
           padding: "inherit",
