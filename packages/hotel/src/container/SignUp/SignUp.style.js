@@ -9,6 +9,14 @@ const SignUpWrapper = styled.div`
 export const MyFormWrapper = styled.div`
   display: flex;
   flex: collumn;
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  .sc-jlyJG kEEktd {
+    display: flex !important;
+    flex-direction: column !important;
+  }
 `;
 
 export const SignUpFormWrapper = styled.div`

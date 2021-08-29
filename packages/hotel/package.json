@@ -34,7 +34,7 @@
     "yup": "^0.27.0"
   },
   "scripts": {
-    "start": "react-app-rewired start",
+    "start": "cross-env PORT=3003 react-app-rewired start",
     "build": "BUNDLE_VISUALIZE=1 react-app-rewired build",
     "test": "react-app-rewired test",
     "serve": "serve -s build",

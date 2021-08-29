@@ -60,6 +60,7 @@ const MyRenderSignUpForm = ({
         {errors.password && touched.password && (
           <div className="input-feedback">{errors.password}</div>
         )}
+
         <input
           style={formStyle}
           name="confirmPassword"
@@ -72,11 +73,12 @@ const MyRenderSignUpForm = ({
             errors.confirmPassword && touched.confirmPassword && "error"
           }
         />
+
         {errors.confirmPassword && touched.confirmPassword && (
           <div className="input-feedback">{errors.confirmPassword}</div>
         )}
         <button style={loginButtonStyle} type="submit" disabled={isSubmitting}>
-          Login
+          SignUp
         </button>
       </form>
     </MyFormWrapper>
