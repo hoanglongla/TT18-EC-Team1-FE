@@ -147,6 +147,7 @@ const SinglePage = ({ match }) => {
       <Description1 content={product.description} />
 
       <div>
+        <h3>Sản phẩm mua cùng</h3>
         {recommendProducts.length > 0 &&
           recommendProducts.map((product) => {
             return (
