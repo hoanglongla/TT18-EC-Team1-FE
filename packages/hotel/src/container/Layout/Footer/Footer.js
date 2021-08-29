@@ -8,11 +8,11 @@ import LogoImage from "../Header/logo_transparent.png";
 const Footer = () => {
   return (
     <Footers
-      logo={
-        <Link to="/">
-          <Logo style={{ width: "30px" }} src={LogoImage} title="hotel" />
-        </Link>
-      }
+      // logo={
+      //   <Link to="/">
+      //     <Logo style={{ width: "30px" }} src={LogoImage} title="hotel" />
+      //   </Link>
+      // }
       menu={<FooterMenu />}
       copyright={`Copyright @ ${new Date().getFullYear()} ReaQ, Inc.`}
     />
