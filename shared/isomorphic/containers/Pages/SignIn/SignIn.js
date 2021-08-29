@@ -124,7 +124,7 @@ export default function SignIn({setToken}) {
               <div className="isoInputWrapper">
                 <Input
                   size="large"
-                  placeholder="Username"
+                  placeholder="Tên đăng nhập"
                   autoComplete="true"
                   onChange={e => setUserName(e.target.value)}
                   
@@ -138,7 +138,7 @@ export default function SignIn({setToken}) {
                 <Input
                   size="large"
                   type="password"
-                  placeholder="Password"
+                  placeholder="Mật khẩu"
                   autoComplete="false"
                   onChange={e => setPassword(e.target.value)}
 
@@ -151,7 +151,7 @@ export default function SignIn({setToken}) {
                   <IntlMessages id="page.signInRememberMe" />
                 </Checkbox>
                 <Button type="primary" onClick={handleSubmit}>
-                  <IntlMessages id="page.signInButton" />
+                  <IntlMessages id="Đăng nhập" />
                 </Button>
               </div>
 
@@ -165,14 +165,14 @@ export default function SignIn({setToken}) {
                 type="primary"
                 className="btnFacebook"
               >
-                <IntlMessages id="page.signInFacebook" />
+                <IntlMessages id="Đăng nhập với Facebook" />
               </Button>
               <Button
                 onClick={signInWithGoogle}
                 type="primary"
                 className="btnGooglePlus"
               >
-                <IntlMessages id="page.signInGooglePlus" />
+                <IntlMessages id="Đăng nhập với Google Plus" />
               </Button>
 
               <Button
@@ -182,7 +182,7 @@ export default function SignIn({setToken}) {
                 type="primary"
                 className="btnAuthZero"
               >
-                <IntlMessages id="page.signInAuth0" />
+                <IntlMessages id="Đăng nhập với Auth0" />
               </Button>
 
               <FirebaseLoginForm
@@ -192,10 +192,10 @@ export default function SignIn({setToken}) {
             </div>
             <div className="isoCenterComponent isoHelperWrapper">
               <Link to="/forgotpassword" className="isoForgotPass">
-                <IntlMessages id="page.signInForgotPass" />
+                <IntlMessages id="Quên mật khẩu?" />
               </Link>
               <Link to="/signup">
-                <IntlMessages id="page.signInCreateAccount" />
+                <IntlMessages id="Tạo tài khoản" />
               </Link>
             </div>
           </div>

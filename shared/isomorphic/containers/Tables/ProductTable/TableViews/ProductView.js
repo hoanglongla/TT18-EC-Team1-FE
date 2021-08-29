@@ -282,7 +282,7 @@ export default function(props) {
           price: parseInt(`${price}`),
           price_discount: parseInt(`${price_discount}`),
           description: `${description}`,
-          picture: null,
+          picture: picture,
           stock: parseInt(`${stock}`),
           amount: parseInt(`${amount}`),
           unit: "gam",
