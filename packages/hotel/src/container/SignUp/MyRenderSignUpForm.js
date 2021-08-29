@@ -10,6 +10,7 @@ const formStyle = {
   marginTop: "10px",
   height: "6vh",
   borderRadius: "3px",
+  
 };
 
 const loginButtonStyle = {
@@ -18,6 +19,7 @@ const loginButtonStyle = {
   backgroundColor: "#0C8A8F",
   textColor: "white",
   marginTop: "14px",
+  
 };
 
 const MyRenderSignUpForm = ({
@@ -30,8 +32,8 @@ const MyRenderSignUpForm = ({
   handleSubmit,
 }) => {
   return (
-    <MyFormWrapper>
-      <form onSubmit={handleSubmit}>
+    <MyFormWrapper style={{ display: "flex", flexDirection:"column" }} >
+      <form style={{ display: "inline-grid" }} onSubmit={handleSubmit}>
         <input
           style={formStyle}
           name="username"
@@ -58,6 +60,7 @@ const MyRenderSignUpForm = ({
         {errors.password && touched.password && (
           <div className="input-feedback">{errors.password}</div>
         )}
+
         <input
           style={formStyle}
           name="confirmPassword"
@@ -70,11 +73,12 @@ const MyRenderSignUpForm = ({
             errors.confirmPassword && touched.confirmPassword && "error"
           }
         />
+
         {errors.confirmPassword && touched.confirmPassword && (
           <div className="input-feedback">{errors.confirmPassword}</div>
         )}
         <button style={loginButtonStyle} type="submit" disabled={isSubmitting}>
-          Login
+          SignUp
         </button>
       </form>
     </MyFormWrapper>

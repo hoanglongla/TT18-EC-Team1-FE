@@ -123,7 +123,7 @@ function Summary({
       <div className="summary">
         <ul>
           <li>
-            Subtotal <span>{formatCurrency(subTotal)}</span>
+            Tạm tính <span>{formatCurrency(subTotal)}</span>
           </li>
           {discount > 0 && (
             <li>
@@ -134,7 +134,7 @@ function Summary({
             Tax <span>{formatCurrency(tax)}</span>
           </li> */}
           <li className="total">
-            Total <span>{formatCurrency(total)}</span>
+            Tổng tiền <span>{formatCurrency(total)}</span>
           </li>
         </ul>
       </div>

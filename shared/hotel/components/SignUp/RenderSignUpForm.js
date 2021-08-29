@@ -14,7 +14,7 @@ const RenderSignUpForm = (props) => {
   const { values, submitCount, handleSubmit } = props;
   return (
     <FormWrapper>
-      <Form onSubmit={handleSubmit}>
+      <Form  onSubmit={handleSubmit}>
         <Field
           component={AntInput}
           name="username"
