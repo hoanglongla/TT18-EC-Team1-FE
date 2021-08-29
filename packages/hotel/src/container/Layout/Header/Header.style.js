@@ -161,7 +161,7 @@ export const AvatarInfo = styled.div`
 export const NavbarSearchWrapper = styled.div`
   display: flex;
   align-items: center;
-  
+  justify-content:spacing-between;
 
   @media only screen and (max-width: 480px) {
     padding-right: 15px;

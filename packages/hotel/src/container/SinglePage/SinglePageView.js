@@ -76,7 +76,16 @@ const SinglePage = ({ match }) => {
       />
       <Information>
         <PostImage>
-          <img src={product.picture} />
+          <img 
+          src={product.picture}
+          alt={title}
+          style={{
+            width: "700px",
+            height: "430px",
+            objectFit: "cover !important",
+            position: "relative",
+          }}
+          />
         </PostImage>
 
         <Container>

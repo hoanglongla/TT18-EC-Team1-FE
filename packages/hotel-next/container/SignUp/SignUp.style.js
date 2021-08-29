@@ -5,6 +5,14 @@ const SignUpWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  .kEEktd{
+    display:flex !important;
+    flex-direction: column !important;
+    form{
+      display:inline-grid;
+    }
+  }
+  
 `;
 
 export const SignUpFormWrapper = styled.div`

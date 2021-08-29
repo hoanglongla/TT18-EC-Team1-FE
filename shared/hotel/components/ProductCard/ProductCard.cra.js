@@ -77,9 +77,10 @@ const PostGrid = ({
         draggable={false}
         style={{
           width: "100%",
-          height: "150px",
+          height: "100%",
           objectFit: "cover",
           position: "relative",
+          padding:"inherit",
         }}
       />
       {/* <Carousel

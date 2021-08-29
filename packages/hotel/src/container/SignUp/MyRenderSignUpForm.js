@@ -10,6 +10,7 @@ const formStyle = {
   marginTop: "10px",
   height: "6vh",
   borderRadius: "3px",
+  
 };
 
 const loginButtonStyle = {
@@ -18,6 +19,7 @@ const loginButtonStyle = {
   backgroundColor: "#0C8A8F",
   textColor: "white",
   marginTop: "14px",
+  
 };
 
 const MyRenderSignUpForm = ({
@@ -30,8 +32,8 @@ const MyRenderSignUpForm = ({
   handleSubmit,
 }) => {
   return (
-    <MyFormWrapper>
-      <form onSubmit={handleSubmit}>
+    <MyFormWrapper style={{ display: "flex", flexDirection:"column" }} >
+      <form style={{ display: "inline-grid" }} onSubmit={handleSubmit}>
         <input
           style={formStyle}
           name="username"

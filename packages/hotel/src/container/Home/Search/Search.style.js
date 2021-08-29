@@ -153,6 +153,9 @@ export const ComponentWrapper = styled.div`
       right: 25px;
     }
   }
+  .cacjfG{
+    justify-content:spacing-between !important;
+  }
 
   /* map auto complete style */
   .map_autocomplete {

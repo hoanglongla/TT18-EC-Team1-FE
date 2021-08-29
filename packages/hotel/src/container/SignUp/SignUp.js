@@ -56,9 +56,9 @@ export default function SignUp() {
   };
 
   return (
-    <SignUpWrapper>
-      <SignUpFormWrapper>
-        <Row style={{ display: "flex", justifyContent: "center" }}>
+    <SignUpWrapper >
+      <SignUpFormWrapper >
+        <Row style={{ display: "flex", justifyContent: "center"}}>
           <div style={{ width: "35%" }}>
             <Logo withLink linkTo="/" src={DemoLogo} title="Hotel Logo" />
           </div>
