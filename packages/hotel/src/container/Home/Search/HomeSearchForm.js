@@ -1,22 +1,17 @@
-import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
-import isEmpty from 'lodash/isEmpty';
+import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
+import isEmpty from "lodash/isEmpty";
 
-import Button from '@iso/ui/Antd/Button/Button';
+import Button from "@iso/ui/Antd/Button/Button";
 
-import MapAutoComplete from '@hotel/components/Map/MapAutoComplete';
-import { NavbarSearchWrapper } from '../../Layout/Header/Header.style';
-import { MapDataHelper } from '@hotel/components/Map/MapLocationBox';
+import MapAutoComplete from "@hotel/components/Map/MapAutoComplete";
+import { NavbarSearchWrapper } from "../../Layout/Header/Header.style";
+import { MapDataHelper } from "@hotel/components/Map/MapLocationBox";
 
 //import { FaMapMarkerAlt } from 'react-icons/fa';
-import { setStateToUrl } from '@iso/lib/helpers/url_handler';
-import { LISTING_POSTS_PAGE } from '../../../settings/constant';
-import {
-  FormWrapper,
-  
-} from './Search.style';
-
-
+import { setStateToUrl } from "@iso/lib/helpers/url_handler";
+import { LISTING_POSTS_PAGE } from "../../../settings/constant";
+import { FormWrapper } from "./Search.style";
 
 const HomeSearch = ({ history }) => {
   const [searchDate] = useState({
@@ -31,7 +26,7 @@ const HomeSearch = ({ history }) => {
     guest: 0,
   });
 
-  const updatevalueFunc = event => {
+  const updatevalueFunc = (event) => {
     const { searchedPlaceAPIData } = event;
     if (!isEmpty(searchedPlaceAPIData)) {
       setMapValue(searchedPlaceAPIData);
@@ -39,11 +34,6 @@ const HomeSearch = ({ history }) => {
   };
 
   // Room Guest data handling
-  
-
-  
-
- 
 
   const goToSearchPage = () => {
     let tempLocation = [];
@@ -51,7 +41,7 @@ const HomeSearch = ({ history }) => {
     mapData &&
       mapData.map((singleMapData, i) => {
         return tempLocation.push({
-          formattedAddress: singleMapData ? singleMapData.formattedAddress : '',
+          formattedAddress: singleMapData ? singleMapData.formattedAddress : "",
           lat: singleMapData ? singleMapData.lat.toFixed(3) : null,
           lng: singleMapData ? singleMapData.lng.toFixed(3) : null,
         });
@@ -72,13 +62,9 @@ const HomeSearch = ({ history }) => {
 
   return (
     <FormWrapper>
-     <NavbarSearchWrapper className="navbar_search">
-     
-      <MapAutoComplete updatevalue={value => updatevalueFunc(value)} />
-      
-     </NavbarSearchWrapper>
-      
-      
+      <NavbarSearchWrapper className="navbar_search">
+        <MapAutoComplete updatevalue={(value) => updatevalueFunc(value)} />
+      </NavbarSearchWrapper>
 
       <Button
         type="primary"

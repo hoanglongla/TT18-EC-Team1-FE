@@ -8,6 +8,7 @@ import SignInForm from "./SignInForm";
 import SignInWrapper from "./SignIn.style";
 import DemoLogo from "@hotel/assets/images/logo_transparent.png";
 import Logo from "@iso/ui/Logo/Logo";
+import signInImage from "@hotel/assets/images/login_page_background.png";
 
 // import { useForms } from "react-hook-form";
 
@@ -23,7 +24,16 @@ const SignIn = () => {
             <SignInForm />
           </div>
         </Col>
-        <Col xs={14} className="bg-secondary h-100"></Col>
+        <Col
+          xs={14}
+          className="bg-secondary h-100"
+          style={{
+            backgroundImage: `url(${signInImage})`,
+            backgroundPosition: "center center",
+            height: "100vh",
+            backgroundSize: "cover",
+          }}
+        ></Col>
       </Row>
     </SignInWrapper>
   );

@@ -6,7 +6,8 @@ import Divider from "@iso/ui/Antd/Divider/Divider";
 import Button from "@iso/ui/Antd/Button/Button";
 import Logo from "@iso/ui/Logo/Logo";
 import SignUpForm from "./SignUpForm";
-import signUpImage from "@hotel/assets/images/login-page-bg.jpg";
+// import signUpImage from "@hotel/assets/images/login-page-bg.jpg";
+import signUpImage from "@hotel/assets/images/login_page_background.png";
 // import DemoLogo from '@hotel/assets/images/logo-with-text.svg';
 import DemoLogo from "@hotel/assets/images/logo_transparent.png";
 import Modal from "react-bootstrap/Modal";
@@ -56,9 +57,9 @@ export default function SignUp() {
   };
 
   return (
-    <SignUpWrapper >
-      <SignUpFormWrapper >
-        <Row style={{ display: "flex", justifyContent: "center"}}>
+    <SignUpWrapper>
+      <SignUpFormWrapper>
+        <Row style={{ display: "flex", justifyContent: "center" }}>
           <div style={{ width: "35%" }}>
             <Logo withLink linkTo="/" src={DemoLogo} title="Hotel Logo" />
           </div>

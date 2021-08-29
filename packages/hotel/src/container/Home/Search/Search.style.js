@@ -1,10 +1,12 @@
-import styled from 'styled-components';
-import { themeGet } from '@styled-system/theme-get';
-import bannerBg from '@hotel/assets/images/banner-bg.jpg';
+import styled from "styled-components";
+import { themeGet } from "@styled-system/theme-get";
+// import bannerBg from "@hotel/assets/images/banner-bg.jpg";
+import bannerBg from "@hotel/assets/images/home_banner.png";
+import bannerImage from "./home_banner.png";
 
 const BannerWrapper = styled.div`
   width: 100%;
-  background-color: ${themeGet('color.1', '#ffffff')};
+  background-color: ${themeGet("color.1", "#ffffff")};
   background-image: url(${bannerBg});
   background-repeat: no-repeat;
   background-position: top center;
@@ -27,7 +29,7 @@ const BannerWrapper = styled.div`
     height: 100%;
   }
   &:before {
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     position: absolute;
@@ -40,7 +42,7 @@ const BannerWrapper = styled.div`
 `;
 
 export const BannerContent = styled.h2`
-  color: ${themeGet('color.1', '#ffffff')};
+  color: ${themeGet("color.1", "#ffffff")};
   font-size: 48px;
   line-height: 60px;
   font-weight: 700;
@@ -70,7 +72,7 @@ export const BannerContent = styled.h2`
 
 export const SearchArea = styled.div`
   border-radius: 3px;
-  background-color: ${themeGet('color.1', '#ffffff')};
+  background-color: ${themeGet("color.1", "#ffffff")};
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.08);
   position: absolute;
   z-index: 1;
@@ -104,7 +106,7 @@ export const FormWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  background-color: ${themeGet('color.2', '#F7F7F7')};
+  background-color: ${themeGet("color.2", "#F7F7F7")};
   border-radius: 3px 0 0 3px;
   min-height: 60px;
   @media only screen and (max-width: 991px) {
@@ -115,11 +117,11 @@ export const FormWrapper = styled.div`
   }
 
   /* submit button style */
-  button[type='submit'].ant-btn {
+  button[type="submit"].ant-btn {
     min-width: 157px;
     height: 60px;
-    color: ${themeGet('color.1', '#ffffff')};
-    background-color: ${themeGet('primary.0', '#008489')};
+    color: ${themeGet("color.1", "#ffffff")};
+    background-color: ${themeGet("primary.0", "#008489")};
     border-radius: 0 3px 3px 0;
     border: 0;
     box-shadow: none;
@@ -153,8 +155,8 @@ export const ComponentWrapper = styled.div`
       right: 25px;
     }
   }
-  .cacjfG{
-    justify-content:spacing-between !important;
+  .cacjfG {
+    justify-content: spacing-between !important;
   }
 
   /* map auto complete style */
@@ -162,7 +164,7 @@ export const ComponentWrapper = styled.div`
     width: 100%;
     position: relative;
     &::after {
-      content: '';
+      content: "";
       width: 1px;
       height: 20px;
       display: inline-block;
@@ -170,7 +172,7 @@ export const ComponentWrapper = styled.div`
       top: calc(50% - 10px);
       right: auto;
       left: auto;
-      background-color: ${themeGet('border.3', '#E6E6E6')};
+      background-color: ${themeGet("border.3", "#E6E6E6")};
     }
     @media only screen and (max-width: 991px) {
       &::after {
@@ -195,7 +197,7 @@ export const ComponentWrapper = styled.div`
       height: 60px;
       padding: 0 30px 0 40px;
       background: transparent;
-      color: ${themeGet('text.0', '#2C2C2C')};
+      color: ${themeGet("text.0", "#2C2C2C")};
       @media only screen and (max-width: 480px) {
         height: 47px;
         padding: 0 30px 0 36px;
@@ -206,7 +208,7 @@ export const ComponentWrapper = styled.div`
         box-shadow: none;
       }
       &::placeholder {
-        color: ${themeGet('text.0', '#2C2C2C')};
+        color: ${themeGet("text.0", "#2C2C2C")};
       }
     }
   }
@@ -261,13 +263,13 @@ export const ComponentWrapper = styled.div`
           .DateInput_input {
             padding: 0;
             font-weight: 400;
-            color: ${themeGet('text.0', '#2C2C2C')};
+            color: ${themeGet("text.0", "#2C2C2C")};
             background: transparent;
             &.DateInput_input__focused {
               border-color: transparent;
             }
             &::placeholder {
-              color: ${themeGet('text.0', '#2C2C2C')};
+              color: ${themeGet("text.0", "#2C2C2C")};
             }
           }
         }
@@ -313,7 +315,7 @@ export const ComponentWrapper = styled.div`
     position: relative;
 
     &::before {
-      content: '';
+      content: "";
       width: 1px;
       height: 20px;
       display: inline-block;
@@ -322,7 +324,7 @@ export const ComponentWrapper = styled.div`
       right: auto;
       left: 0;
       z-index: 1;
-      background-color: ${themeGet('border.3', '#E6E6E6')};
+      background-color: ${themeGet("border.3", "#E6E6E6")};
       @media only screen and (max-width: 991px) {
         top: 0;
         bottom: auto;
@@ -351,8 +353,8 @@ export const ComponentWrapper = styled.div`
         box-shadow: none;
         font-weight: 400;
         font-size: 15px;
-        color: ${themeGet('text.0', '#2C2C2C')};
-        background-color: ${themeGet('color.2', '#F7F7F7')};
+        color: ${themeGet("text.0", "#2C2C2C")};
+        background-color: ${themeGet("color.2", "#F7F7F7")};
         @media only screen and (max-width: 991px) {
           text-align: left;
           padding: 0 25px 0 30px;
@@ -402,7 +404,7 @@ export const ComponentWrapper = styled.div`
     &.user-friends {
       left: 15px;
       right: auto;
-      fill: ${themeGet('primary.0', '#008489')};
+      fill: ${themeGet("primary.0", "#008489")};
     }
     &.calendar {
       @media only screen and (max-width: 480px) {
@@ -421,7 +423,7 @@ export const ComponentWrapper = styled.div`
     &.caret-down {
       right: 12px;
       left: auto;
-      fill: ${themeGet('text.1', '#909090')};
+      fill: ${themeGet("text.1", "#909090")};
       @media only screen and (max-width: 991px) {
         right: 20px;
       }
@@ -437,7 +439,7 @@ export const RoomGuestWrapper = styled.div`
   strong {
     font-size: 15px;
     font-weight: 400;
-    color: ${themeGet('text.0', '#2C2C2C')};
+    color: ${themeGet("text.0", "#2C2C2C")};
   }
 `;
 

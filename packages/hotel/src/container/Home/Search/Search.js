@@ -1,18 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Heading from '@iso/ui/Heading/Heading';
-import Text from '@iso/ui/Text/Text';
-import Container from '@iso/ui/UI/Container/Container';
-import HomeSearchForm from './HomeSearchForm';
-import BannerWrapper, { BannerContent, SearchArea } from './Search.style';
+import React from "react";
+import PropTypes from "prop-types";
+import Heading from "@iso/ui/Heading/Heading";
+import Text from "@iso/ui/Text/Text";
+import Container from "@iso/ui/UI/Container/Container";
+import HomeSearchForm from "./HomeSearchForm";
+import BannerWrapper, { BannerContent, SearchArea } from "./Search.style";
 
 const HomeSearch = ({ searchTitleStyle, searchDescriptionStyle }) => {
   return (
     <BannerWrapper>
       <Container>
-        <BannerContent>
-          Chào mừng đến với ...
-        </BannerContent>
+        {/* <img src={bannerImage} /> */}
+        <BannerContent></BannerContent>
         {/* End of banner content */}
         <SearchArea>
           <Heading
@@ -38,16 +37,16 @@ HomeSearch.propTypes = {
 
 HomeSearch.defaultProps = {
   searchTitleStyle: {
-    color: '#2C2C2C',
-    fontSize: ['17px', '22px', '25px'],
-    lineHeight: ['28px', '30px', '30px'],
-    mb: '9px',
+    color: "#2C2C2C",
+    fontSize: ["17px", "22px", "25px"],
+    lineHeight: ["28px", "30px", "30px"],
+    mb: "9px",
   },
   searchDescriptionStyle: {
-    color: '#2C2C2C',
-    fontSize: '15px',
-    lineHeight: '24px',
-    mb: '30px',
+    color: "#2C2C2C",
+    fontSize: "15px",
+    lineHeight: "24px",
+    mb: "30px",
   },
 };
 
