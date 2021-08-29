@@ -55,8 +55,8 @@ const PostGrid = ({
       }
       location={`Dành cho nam`}
       title={<TextLink link={`${link}/${slug}`} content={title} />}
-      price={`Giá : ${price} VNĐ`}
-      priceDiscount={`Giá ưu đãi : ${price} VNĐ`}
+      price={`Giá : ${price} $`}
+      priceDiscount={`Giá ưu đãi : ${price} $`}
       viewDetailsBtn={
         <TextLink link={`${link}/${slug}`} content="Xem chi tiết" />
       }

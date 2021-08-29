@@ -25,18 +25,20 @@ const Detail = () => {
 
           //add to table
           let items = res.data.data.data;
-          items = items.map((item, index) => {
-            let note = JSON.parse(item.note);
-            console.log("note: ", note);
-            return {
-              key: index,
-              id: item.id,
-              date: item.created_at.slice(0, 19),
-              total: note.purchase_units[0].amount.value + " USD",
-              status: item.status,
-              delivery_status: item.delivery_status,
-            };
-          });
+          items = items
+            .filter((item) => item.note.length > 30)
+            .map((item, index) => {
+              let note = JSON.parse(item.note);
+              console.log("note: ", note);
+              return {
+                key: index,
+                id: item.id,
+                date: item.created_at.slice(0, 19),
+                total: note.purchase_units[0].amount.value + " USD",
+                status: item.status,
+                delivery_status: item.delivery_status,
+              };
+            });
           setRowData(items);
         }
       });

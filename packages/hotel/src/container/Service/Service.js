@@ -89,40 +89,40 @@ export default function ServiceListing() {
                 }),
               ];
 
-              return cate_services ? (
-                <div key={index}>
-                  <ServiceSectionTitle title={category.name} />
-                  <CarouselSection>
-                    {cate_services.length !== 0 ? (
-                      <GlideCarousel
-                        carouselSelector={`explore_carouse${index}`}
-                        prevButton={<IoIosArrowBack />}
-                        nextButton={<IoIosArrowForward />}
-                        options={carouselOptions}
-                      >
-                        <>
-                          {console.log("cate Name", category.name)}
+              return cate_services
+                ? cate_services.length !== 0 && (
+                    <div key={index}>
+                      <ServiceSectionTitle title={category.name} />
+                      <CarouselSection>
+                        {cate_services.length !== 0 ? (
+                          <GlideCarousel
+                            carouselSelector={`explore_carouse${index}`}
+                            prevButton={<IoIosArrowBack />}
+                            nextButton={<IoIosArrowForward />}
+                            options={carouselOptions}
+                          >
+                            {console.log("cate ser", cate_services)}
 
-                          {cate_services.map((post) => (
-                            <GlideSlide key={post.id}>
-                              <ImageCard
-                                serviceID={post.id}
-                                link="post-service"
-                                imageSrc={post.picture}
-                                title={`${post.name}`}
-                                meta={`${post.price} VND`}
-                                sextype={`Dành cho nam`}
-                              />
-                            </GlideSlide>
-                          ))}
-                        </>
-                      </GlideCarousel>
-                    ) : (
-                      <Loader />
-                    )}
-                  </CarouselSection>
-                </div>
-              ) : null;
+                            {cate_services.map((post) => (
+                              <GlideSlide key={post.id}>
+                                <ImageCard
+                                  serviceID={post.id}
+                                  link="post-service"
+                                  imageSrc={post.picture}
+                                  title={`${post.name}`}
+                                  meta={`${post.price} VND`}
+                                  sextype={post.sex_type}
+                                />
+                              </GlideSlide>
+                            ))}
+                          </GlideCarousel>
+                        ) : (
+                          <Loader />
+                        )}
+                      </CarouselSection>
+                    </div>
+                  )
+                : null;
             })
           : null}
       </Container>

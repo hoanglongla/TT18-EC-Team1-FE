@@ -58,7 +58,16 @@ export default function Listing({ location, history }) {
   // setShowMap(showMap => !showMap);
   //};
   const handleChooseCategory = (id, index) => {
-    console.log("idcate", id);
+    // console.log("idcate", id);
+    if (index === -1) {
+      axios.get(`${API_URL}/g/product`).then((res) => {
+        if (res.data.status) {
+          // console.log(res.data.data.data);
+          setProducts(res.data.data.data);
+          setCateIndex(index);
+        }
+      });
+    }
     setProducts([]);
     axios
       .get(`${API_URL}/g/product?products_categories_id=${id}`)
@@ -91,6 +100,12 @@ export default function Listing({ location, history }) {
           <Col md={2}>
             <div className="category__list" style={{ display: "inline-block" }}>
               <ul>
+                <li
+                  className="category"
+                  onClick={() => handleChooseCategory("", -1)}
+                >
+                  {cateIndex === -1 ? <b>Tất cả</b> : "Tất cả"}
+                </li>
                 {categories.map((cate, index) => {
                   return (
                     <li

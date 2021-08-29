@@ -59,8 +59,8 @@ const PostGrid = ({
         />
       }
       title={<TextLink link={`${link}/${slug}`} content={`${name}`} />}
-      price={`Giá : ${price} VNĐ`}
-      priceDiscount={`Giá ưu đãi(no data): ${price} VNĐ`}
+      price={`Giá : ${price} $`}
+      priceDiscount={`Giá ưu đãi(no data): ${price} $`}
       viewDetailsBtn={
         <TextLink
           onClick={() => handleClick(id)}
@@ -80,7 +80,7 @@ const PostGrid = ({
           height: "100%",
           objectFit: "cover",
           position: "relative",
-          padding:"inherit",
+          padding: "inherit",
         }}
       />
       {/* <Carousel

@@ -4,7 +4,7 @@ import "./Cart.css";
 import CartTable from "./CartTable";
 import { CartLayout, CartWrapper } from "./CartTable.styles";
 import { InputNumber } from "antd";
-import { CHECKOUT_PAGE } from "../../settings/constant";
+import { CHECKOUT_PAGE, SINGLE_POST_PAGE } from "../../settings/constant";
 import axios from "axios";
 import { API_URL } from "../../settings/constant";
 function formatCurrency(value) {
@@ -35,6 +35,9 @@ function Header({ itemCount }) {
 }
 
 function ProductList({ products, onChangeProductQuantity, onRemoveProduct }) {
+  const handleViewProduct = (id) => {
+    localStorage.setItem("current_product_id", id);
+  };
   return (
     <section className="container">
       <ul className="products">
@@ -53,7 +56,11 @@ function ProductList({ products, onChangeProductQuantity, onRemoveProduct }) {
                 </div>
                 <div className="detail">
                   <div className="name">
-                    <a href="#">{product.name}</a>
+                    <Link to={`${SINGLE_POST_PAGE}/${product.id}`}>
+                      <a onClick={() => handleViewProduct(product.id)} href="#">
+                        {product.name}
+                      </a>
+                    </Link>
                   </div>
                   <div className="description">
                     {product.description.slice(0, 25)}

@@ -90,7 +90,7 @@ const ServiceSinglePage = ({ match }) => {
       </PostImage>
       <h2 className="mx-auto title-service">{service.name}</h2>
       <CostArea>
-        <h4>{`${service.price} VNĐ`}</h4>
+        <h4>{`${service.price} $`}</h4>
         {/* <h4>{service.price_discount ? service.price_discount : "1000$"}</h4> */}
       </CostArea>
       <DescriptionArea>{service.description}</DescriptionArea>

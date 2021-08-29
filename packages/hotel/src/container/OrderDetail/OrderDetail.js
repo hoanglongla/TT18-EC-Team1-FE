@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import OrderDetailWrapper from "./OrderDetail.style";
 import axios from "axios";
 import { API_URL } from "../../settings/constant";
-import { Tag, Table } from "antd";
+import { Tag, Table, Button } from "antd";
 import { Link } from "react-router-dom";
 
 const OrderDetail = () => {
@@ -27,7 +27,7 @@ const OrderDetail = () => {
             (item) => item.id == localStorage.getItem("current_user_order_id")
           )[0];
 
-          // console.log(tmp);
+          console.log("tmp", tmp);
           setOrder(tmp);
 
           //set order's general info
@@ -150,6 +150,27 @@ const OrderDetail = () => {
     },
   ];
 
+  const handleCancelOrder = () => {
+    let orderID = localStorage.getItem("current_user_order_id");
+    let loginedUser = JSON.parse(localStorage.getItem("loginedUser"));
+
+    axios
+      .post(
+        `${API_URL}/c/order/${orderID}/update`,
+        { status: 3 },
+        {
+          headers: {
+            Authorization: `Bearer ${loginedUser.access_token}`,
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
+      .then((res) => {
+        console.log("update order status", res);
+      });
+  };
+
   return (
     <OrderDetailWrapper>
       <Table columns={infoColumns} dataSource={orderInfo} pagination={false} />
@@ -159,6 +180,11 @@ const OrderDetail = () => {
         pagination={false}
         footer={() => `Total: ${totalProductsCost}`}
       />
+
+      {/* prettier-ignore */}
+      {orderInfo.length > 0 && orderInfo[0].status != 3 && (
+        <Button onClick={handleCancelOrder}>Hủy đơn hàng</Button>
+      )}
     </OrderDetailWrapper>
   );
 };

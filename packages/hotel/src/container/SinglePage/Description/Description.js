@@ -53,18 +53,30 @@ const Description = ({
       <DescriptionWrapper>
         <Heading as="h2" content={title} {...titleStyle} />
         <RatingMeta>
-          <Rating rating={rating} ratingCount={ratingCount} amount={amount} type="bulk" />
+          <Rating
+            rating={rating}
+            ratingCount={ratingCount}
+            amount={amount}
+            type="bulk"
+          />
         </RatingMeta>
-        {discount !=0 || discount !=null ?(
-          <Cost>{productPrice} VNĐ</Cost>
-        ):(
+        {discount != 0 || discount != null ? (
+          <Cost>{productPrice} $</Cost>
+        ) : (
           <span>
-          <Cost style={{textDecoration:"line-through",fontSize:"20px",color:"grey"}} >{productPrice} VNĐ</Cost>
-          <Cost>{discount} VNĐ</Cost>
+            <Cost
+              style={{
+                textDecoration: "line-through",
+                fontSize: "20px",
+                color: "grey",
+              }}
+            >
+              {productPrice} $
+            </Cost>
+            <Cost>{discount} $</Cost>
           </span>
-         
         )}
-        
+
         <Amount>
           Số lượng:{" "}
           <AmountBar

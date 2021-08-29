@@ -38,7 +38,7 @@ const ImageCard = ({
           {title && <Title>{title}</Title>}
           {meta && <Meta>{meta}</Meta>}
           <br></br>
-          {sextype && <Meta>{sextype}</Meta>}
+          {sextype && <Meta>{sextype === 0 ? "Name" : "Nữ"}</Meta>}
         </ContentWrapper>
       </Link>
     </ImageCardWrapper>

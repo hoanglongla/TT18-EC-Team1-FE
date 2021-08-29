@@ -16,10 +16,10 @@ import InvoicePageWrapper from "./SingleInvoice.styles";
 import { ViewTable } from "./InvoiceTable";
 import invoiceActions from "@iso/redux/invoice/actions";
 import { Select } from "antd";
-import InvoiceAddress from '@iso/components/Invoice/Address';
+import InvoiceAddress from "@iso/components/Invoice/Address";
 import { API_URL } from "../../config/url/url";
 const { Option } = Select;
-const{TextArea} =Input;
+const { TextArea } = Input;
 const { updateInvoice, editInvoice } = invoiceActions;
 const updateValues = (invoice) => {
   const { invoiceList } = invoice;
@@ -95,43 +95,47 @@ export default function(props) {
       dispatch(updateInvoice(editableInvoice));
     }
   };
-  function updateOrder(id){
-    return axios.post(`${API_URL}/sub_admin/order/${id}/update`,
-    {
-        "status" : order_status,
-        "delivery_status":delivery_status,
-        "address":address
-    },
-    { headers: { Authorization: AuthStr,'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS','Access-Control-Allow-Origin' : '*' }})
-    .then(res=>res.data.status);
-
-  
+  function updateOrder(id) {
+    return axios
+      .post(
+        `${API_URL}/sub_admin/order/${id}/update`,
+        {
+          status: order_status,
+          delivery_status: delivery_status,
+          address: address,
+        },
+        {
+          headers: {
+            Authorization: AuthStr,
+            "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
+      .then((res) => res.data.status);
   }
-  const handleUpdate = async () =>{
+  const handleUpdate = async () => {
     const statusUpdate = await updateOrder(order.id);
-    if(statusUpdate == true){
-      
+    if (statusUpdate == true) {
     }
-};
-  const [order_status,setOrderStatus] = useState(order.status);
-  const [delivery_status,setDeliveryStatus] = useState(order.delivery_status);
-  const [address,setAddress] = useState(order.address)
+  };
+  const [order_status, setOrderStatus] = useState(order.status);
+  const [delivery_status, setDeliveryStatus] = useState(order.delivery_status);
+  const [address, setAddress] = useState(order.address);
   function handleChange(value) {
-    setOrderStatus(value)
+    setOrderStatus(value);
   }
   function handleChange(value) {
-    setOrderStatus(value)
+    setOrderStatus(value);
   }
   function handleChangeDelivery(value) {
-    setDeliveryStatus(value)
+    setDeliveryStatus(value);
   }
   return (
     <LayoutWrapper>
       <Box>
         <InvoicePageWrapper className="editView">
           <div className="PageHeader">
-            
-
             <Button type="primary" onClick={handleUpdate} className="saveBtn">
               <span>Save</span>
             </Button>
@@ -145,26 +149,27 @@ export default function(props) {
               <div className="RightSideContent">
                 <div className="RightSideStatus">
                   <span className="RightSideStatusSpan">Order Status: </span>
-                  <Select defaultValue={order.status} style={{ width: 200,marginBottom:10 }} onChange={handleChange}>
-      <Option value={0}>Chưa xử lý</Option>
-      <Option value={1}>Thanh Toán</Option>
-      <Option value={2}>
-        Chưa thanh toán
-      </Option>
-      <Option value={3}>
-        Hủy
-      </Option>
-      
-    </Select>
+                  <Select
+                    defaultValue={order.status}
+                    style={{ width: 200, marginBottom: 10 }}
+                    onChange={handleChange}
+                  >
+                    <Option value={0}>Chưa xử lý</Option>
+                    <Option value={1}>Thanh Toán</Option>
+                    <Option value={2}>Chưa thanh toán</Option>
+                    <Option value={3}>Hủy</Option>
+                  </Select>
                 </div>
-                <div className="RightSideStatus" >
+                <div className="RightSideStatus">
                   <span className="RightSideStatusSpan">Giao hàng: </span>
-                  <Select defaultValue={order.delivery_status} style={{ width: 200 }} onChange={handleChangeDelivery}>
-      <Option value={0}>Chưa giao</Option>
-      <Option value={1}>Đã giao</Option>
-      
-      
-    </Select>
+                  <Select
+                    defaultValue={order.delivery_status}
+                    style={{ width: 200 }}
+                    onChange={handleChangeDelivery}
+                  >
+                    <Option value={0}>Chưa giao</Option>
+                    <Option value={1}>Đã giao</Option>
+                  </Select>
                 </div>
                 <div className="RightSideDate">
                   Order date:{" "}
@@ -183,15 +188,13 @@ export default function(props) {
             </div>
             <div className="BillingInformation">
               <div className="LeftSideContent">
-              <h3 className="Title">Người đặt</h3>
-              <InvoiceAddress
-            companyAddress={username}
-            
-          />
-                <h3 className="Title" style={{marginTop:"10px"}}>Địa chỉ</h3>
+                <h3 className="Title">Người đặt</h3>
+                <InvoiceAddress companyAddress={username} />
+                <h3 className="Title" style={{ marginTop: "10px" }}>
+                  Địa chỉ
+                </h3>
                 <TextArea
                   defaultValue={order.address}
-                 
                   rows={5}
                   name="billFromAddress"
                   onChange={(e) => {
@@ -218,18 +221,14 @@ export default function(props) {
                 />
               </div> */}
               <div className="RightSideContent">
-          <h3 className="Title">Chi nhánh</h3>
+                <h3 className="Title">Chi nhánh</h3>
 
-          <InvoiceAddress
-            
-            companyAddress={order.tail_id}
-          />
-          
-        </div>
+                <InvoiceAddress companyAddress={order.tail_id} />
+              </div>
             </div>
 
             <div className="InvoiceTable editInvoiceTable">
-            <ViewTable invoiceList={order.order_product} />
+              <ViewTable invoiceList={order.order_product} />
               {/* <div className="InvoiceTableBtn">
                 <Button
                   onClick={() => {
