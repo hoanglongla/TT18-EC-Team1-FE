@@ -14,7 +14,7 @@ const Footer = () => {
       //   </Link>
       // }
       menu={<FooterMenu />}
-      copyright={`Copyright @ ${new Date().getFullYear()} ReaQ, Inc.`}
+      copyright={`Copyright @ ${new Date().getFullYear()} BeautyHand.`}
     />
   );
 };
